@@ -1,0 +1,83 @@
+{% extends 'layout.html.twig' %}   
+
+{% block content %}
+
+    <div class="container">
+
+        <h1>Nos articles</h1>
+
+        {% for article in articles %}
+
+            <h2>{{ article.title }}</h2>
+            <small>Ecrit le {{ article.created_at }} </small>
+            <p>{{ article.introduction }}</p>
+
+            <a href="{{ URL }}/article/show/{{ article.id }}" >Lire la suite</a>
+
+            {% if session.niveau > 0 %}
+             <a href="{{ URL }}/article/delete/{{ article.id }}" onclick="return window.confirm(`Êtes vous sur de vouloir supprimer cet article ?!`)">Supprimer</a>
+            {% endif %}
+           
+            
+
+        {% endfor %}
+
+       
+        <form action="{{ URL }}/article/add" method="POST">
+                
+                <section class="" id="">
+                    
+                    <div class="jumbotron">
+                    <h2 class="display-4">Postez votre article !</h2>
+                    <hr class="my-4">
+                                                        
+                        <section class="section pb-5">
+                            <div class="row">
+
+                        <!--Grid column-->
+                            <div class="col-lg-12">
+                                
+                                    <!--Form with header-->
+                                    <div class="card">
+
+                                    <div class="card-body">
+                                        <!--Header-->
+                                        
+                                        <h5>Postez votre article !</h5> <br>
+
+                                        <!--Body-->
+                                            <div class="md-form">
+                                            <i class="fas fa-user prefix grey-text"></i>
+                                            <label for="form-name">Titre</label>
+                                            <input type="text" name="title" placeholder="Titre" id="form-name" class="form-control">
+                                            </div><br>
+
+                                            <div class="md-form">
+                                            <i class="fas fa-user prefix grey-text"></i>
+                                            <label for="form-name">Introduction</label>
+                                            <input type="text" name="intro" id="form-name" class="form-control" placeholder="Introduction">
+                                            </div><br>
+
+                                            <div class="md-form">
+                                            <i class="fas fa-pencil-alt prefix grey-text"></i>
+                                            <label for="form-text">Message</label>
+                                            <textarea id="form-text"name="content" class="form-control md-textarea" placeholder="Votre post ..." rows="3"></textarea>
+                                            </div><br>
+
+                                            <div class="text-center text-md-center">
+                                            <input type="hidden" name="article_id" value="{{ article_id }}">
+                                            <button class="btn btn-primary" type="submit">Ajoutez un poste</button>
+                                            </div>
+                                    </div>
+                                        
+                            </div>
+                        <!--Form with header-->
+
+                        </div>
+                                <!--Grid column-->
+        </form>
+
+    </div>
+
+{% endblock %}
+

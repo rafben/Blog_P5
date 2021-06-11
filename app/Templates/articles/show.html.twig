@@ -1,0 +1,90 @@
+  {% extends 'layout.html.twig' %}   
+  
+  {% block content %}
+
+    <div class="container">
+
+    
+
+        <h1>{{ article.title}} </h1>
+        <small>Ecrit le {{ article.created_at }}</small>
+        <p>{{ article.introduction}}</p>
+        <hr>
+        <p>{{ article.content }}</p>
+
+        {% if commentaires | length == 0 %}
+
+            <h2>Il n'y a pas encore de commentaires pour cet article ... SOYEZ LE PREMIER !</h2>
+
+        {% else %}
+            <h2>Il y a déjà {{ commentaires | length }} réactions : </h2>
+            
+            {% for commentaire in commentaires %}
+                <h4>Commentaire de {{ commentaire.author }}</h4>
+                <small>Le {{ commentaire.created_at }}</small>
+                <blockquote>
+                    <em>{{ commentaire.content}}</em>
+                </blockquote>
+                {% if session.niveau > 0 %}
+                <a href=" {{ URL }}/comment/delete/{{ commentaire.id }}" onclick="return window.confirm(`Êtes vous sûr de vouloir supprimer ce commentaire ?!`)">Supprimer</a>            {% endif %}
+               
+            {% endfor %}
+
+
+        {% endif %}
+
+        <form action="{{ URL }}/comment/insert" method="POST">
+            
+            <section class="" id="">
+                  
+                <div class="jumbotron">
+                <h2 class="display-4">Vos commentaires</h2>
+                <hr class="my-4">
+                                                       
+                    <section class="section pb-5">
+                        <div class="row">
+
+                    <!--Grid column-->
+                        <div class="col-lg-12">
+                              
+                                <!--Form with header-->
+                                <div class="card">
+
+                                  <div class="card-body">
+                                    <!--Header-->
+                                    
+                                    <h5>Vous voulez réagir ? N'hésitez pas :</h5> <br>
+
+                                    <!--Body-->
+                                        <div class="md-form">
+                                        <i class="fas fa-user prefix grey-text"></i>
+                                        <label for="form-name">Votre pseudo</label>
+                                        <input type="text" name="author" id="form-name" class="form-control" placeholder="Votre pseudo !">
+                                        </div><br>
+
+                                        <div class="md-form">
+                                        <i class="fas fa-pencil-alt prefix grey-text"></i>
+                                        <label for="form-text">Message</label>
+                                        <textarea id="form-text"name="content" class="form-control md-textarea" placeholder="Votre commentaire ..." rows="3"></textarea>
+                                        </div><br>
+
+                                        <div class="text-center text-md-center">
+                                        <input type="hidden" name="article_id" value="{{ article_id }}">
+                                        <button class="btn btn-primary" type="submit">Commenter !</button>
+                                        </div>
+                                    
+                                </div>
+                        </div>
+                    
+
+                    </div>
+                              
+
+               
+        </form>
+    </div>
+    
+
+
+
+{% endblock %}

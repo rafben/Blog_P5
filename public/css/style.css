@@ -1,0 +1,245 @@
+body{
+
+   background-image: url("../images/background1.jpg");
+   background-size: cover;
+}
+
+nav{
+
+   background-color: #222;
+   padding: 5px et 20px;
+}
+
+li{
+
+   list-style-type: none ;
+   
+}
+
+h5{
+
+   color: black
+}
+
+
+
+h1, h2,small, h6, h3, p, hr, em, blockquote{
+
+   color: white;
+}
+
+a{
+
+   color: white (185, 18, 40) !important;
+   text-decoration: none;
+}
+
+a:hover{
+
+   text-decoration: underline;
+}
+
+.menu li {
+   font-size: 16px;
+   padding: 15px 5px;
+}
+
+.menu li a {
+
+   display: block;
+}
+
+/*mobile menu*/
+
+.menu{
+
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   align-items: center;
+
+}
+.items{
+   width: 100pc;
+   text-align: center;
+   order:3;
+   display: none;
+   
+
+
+}
+.items.active{
+
+   display: block;
+
+
+}
+.toggle{
+
+ cursor:pointer;
+
+}
+
+.bars{
+   background: #999;
+   display: inline-block;
+   height: 2px;
+   position: relative;
+   width: 18px;
+
+}
+
+.bars::before,.bars::after{
+   background: #999;
+   content:"" ;
+   display: inline-block;
+   height: 2px;
+   position: absolute;
+   width: 18px;
+
+}
+.bars::before{
+   top: 5px;
+
+}
+.bars::after{
+   top: -5px;
+
+}
+
+/*tablette*/
+
+@media all and (min-width:460px){
+
+   .menu{
+      justify-content: center;
+   }
+   .logo{
+      flex:1;
+   }
+   .toggle{
+      order: 2;
+   }
+}
+
+@media all and (min-width:768px){
+
+   .items {
+      display: block;
+      width: auto;
+   }
+   .toggle{
+      display: none;
+   }
+   .logo{
+      order:1
+   }
+   .menu li{
+      padding: 15px 10px;
+      padding-right: 30px;
+   }
+ 
+}
+
+h4
+{
+
+   color:rgb(204, 53, 235)
+}
+
+.row{
+
+   display : flex;
+   
+}
+
+.jumbotron{
+
+   background-color:royalblue !important;
+   color: white;
+   text-align: justify;
+   padding-top: 1.5rem !important;
+   padding-bottom: 2rem !important;
+   margin-top: 1.5rem;
+}
+
+.display-4{
+
+   font-size: 2.5rem !important;
+}
+ .card-text{
+
+   color: black;
+
+ } 
+
+.md-form {
+   color: black
+}
+
+.card-body{
+
+   color: black;
+}
+
+#positionAffiche
+{
+ padding-top: 0.7rem;
+
+
+}
+
+#positionAffiche img{
+
+   width: 100%;
+
+}
+
+.btn-primary {
+
+   margin-bottom: 1rem;
+  
+  
+}
+
+.form-email{
+
+   color:white;
+}
+
+.form-name{
+
+   color:white;
+}
+.form-object{
+
+   color:white;
+}
+.form-message{
+
+   color:white;
+}
+
+#map-container-google-11 iframe{
+
+   width: 100%;
+
+}
+
+h2{
+
+   text-align: center;
+}
+
+.btn-outline-light{
+
+   color:rgb(204, 53, 235);
+}
+.form-group {
+
+   color:white;
+}
+.subheading{
+   color:white;
+
+}
