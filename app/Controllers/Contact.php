@@ -58,6 +58,8 @@ class Register extends Controller
                     
                         // Créé l'email et l'envoie
                         $to = 'rbengrid@hotmail.com';
+                        $to = 'rbengrid23@hotmail.com';
+
                         $email_subject = "Contact du Blog:  $name";
                         $email_body = "Vous avez reçu un nouveau message du Blog";
                         $headers = "De: noreply@devsblog.com\n";
