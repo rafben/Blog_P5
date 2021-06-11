@@ -57,7 +57,6 @@ class Register extends Controller
                         $message = strip_tags(htmlspecialchars($_POST['message']));
                     
                         // Créé l'email et l'envoie
-                        $to = 'rbengrid@hotmail.com';
                         $to = 'rbengrid23@hotmail.com';
 
                         $email_subject = "Contact du Blog:  $name";
