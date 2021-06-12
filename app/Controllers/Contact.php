@@ -57,6 +57,7 @@ class Register extends Controller
                         $message = strip_tags(htmlspecialchars($_POST['message']));
                     
                         // Créé l'email et l'envoie
+<<<<<<< HEAD
                         $to = 'rbengrid23@hotmail.com';
                         $to = 'rbengrid23@hotmail.com';
                         $to = 'rbengrid23@hotmail.com';
@@ -64,6 +65,9 @@ class Register extends Controller
 
 
 
+=======
+                        $to = 'rbengrid23@gmail.com';
+>>>>>>> bfed3c80e83667cd1a2720f17b6a3d451d2a1dda
                         $email_subject = "Contact du Blog:  $name";
                         $email_body = "Vous avez reçu un nouveau message du Blog";
                         $headers = "De: noreply@devsblog.com\n";
