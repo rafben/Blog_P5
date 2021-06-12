@@ -16,7 +16,7 @@ class Register extends Controller
         
         if(empty($_POST['name'])      ||
             empty($_POST['email'])     ||
-            empty($_POST['phone'])     ||
+            empty($_POST['objet'])     ||
             empty($_POST['message'])   ||
             !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
         {
@@ -27,11 +27,11 @@ class Register extends Controller
         
             $name = strip_tags(htmlspecialchars($_POST['name']));
             $email_address = strip_tags(htmlspecialchars($_POST['email']));
-            $phone = strip_tags(htmlspecialchars($_POST['phone']));
+            $phone = strip_tags(htmlspecialchars($_POST['objet']));
             $message = strip_tags(htmlspecialchars($_POST['message']));
         
             // Créé l'email et l'envoie
-            $to = 'text_me2@protonmail.com';
+            $to = 'rbengrid@hotmail.com';
             $email_subject = "Contact du Blog:  $name";
             $email_body = "Vous avez reçu un nouveau message du Blog.\n\n"."Voici les details:\n\nNom: $name\n\nEmail: $email_address\n\nNumero de téléphone: $phone\n\nMessage:\n$message";
             $headers = "De: noreply@devsblog.com\n";
