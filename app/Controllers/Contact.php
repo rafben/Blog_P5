@@ -14,7 +14,7 @@ class Register extends Controller
 
         // Vérification pour les champs vides
         
-        if(empty($_POST['name'])      ||
+        if(empty($_POST['name'])       ||
             empty($_POST['email'])     ||
             empty($_POST['objet'])     ||
             empty($_POST['message'])   ||
