@@ -58,10 +58,10 @@ class Register extends Controller
                     
                         // Créé l'email et l'envoie
 <<<<<<< HEAD
-                        $to = 'rbengrid23@hotmail.com';
-                        $to = 'rbengrid23@hotmail.com';
-                        $to = 'rbengrid23@hotmail.com';
-                        $to = 'rbengrid23@hotmail.com';
+                        $to = 'rbengrid2@hotmail.com';
+                        $to = 'rbengrid3@hotmail.com';
+                        $to = 'rbengrid4@hotmail.com';
+                        $to = 'rbengrid5@hotmail.com';
 
 
 
