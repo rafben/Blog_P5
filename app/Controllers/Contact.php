@@ -10,73 +10,37 @@ class Register extends Controller
 
     protected $modelName = \App\Models\Register::class;
 
-        public function contact(){
+    public function contact(){
 
-            $input_params = [
-                'nom' =>[
-                    'filter' => FILTER_SANITIZE_STRING,
-                ],
-                'email' =>[
-                    'filter' => FILTER_VALIDATE_EMAIL
-                ],
-                'object' => [
-                    'filter' => FILTER_SANITIZE_STRING,
-
-                ],
-                'message' => [
-                    'filter'  => FILTER_SANITIZE_STRING
-                ],
-                 ];
-
-                 $inputs = (object)filter_input_array(INPUT_POST, $input_params);
-
-                if ($this->model->connect($inputs->nom, $inputs->email, $inputs->object, $inputs->message)) {
-                    header('Location: ' . URL . '/Article');
-                } else {
-                    $this->index("Veuillez remplir tous les champs,  merci de réessayer");
-                }
-            
-
-
-                 /*   // Vérification pour les champs vides
-                    
-                    if(empty($_POST['name'])      ||
-                        empty($_POST['email'])     ||
-                        empty($_POST['object'])     ||
-                        empty($_POST['message'])   ||
-                        !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
-                    {
-                        echo "Veuillez remplir tous les champs.";
-                    
-                        return $this->index();
-                    }*/
-                    
-                        $name = strip_tags(htmlspecialchars($_POST['name']));
-                        $email = strip_tags(htmlspecialchars($_POST['email']));
-                        $object = strip_tags(htmlspecialchars($_POST['object']));
-                        $message = strip_tags(htmlspecialchars($_POST['message']));
-                    
-                        // Créé l'email et l'envoie
-<<<<<<< HEAD
-                        $to = 'rbengrid2@hotmail.com';
-                        $to = 'rbengrid3@hotmail.com';
-                        $to = 'rbengrid4@hotmail.com';
-                        $to = 'rbengrid5@hotmail.com';
-
-
-
-=======
-                        $to = 'rbengrid23@gmail.com';
->>>>>>> bfed3c80e83667cd1a2720f17b6a3d451d2a1dda
-                        $email_subject = "Contact du Blog:  $name";
-                        $email_body = "Vous avez reçu un nouveau message du Blog";
-                        $headers = "De: noreply@devsblog.com\n";
-                        $headers .= "Répondre au: $email";
-                        mail($to,$email_subject,$email_body,$headers);
-                        return $this->index();
-                    
-                    
-                        }
-
-}
+        // Vérification pour les champs vides
+        
+        if(empty($_POST['name'])      ||
+            empty($_POST['email'])     ||
+            empty($_POST['phone'])     ||
+            empty($_POST['message'])   ||
+            !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
+        {
+            echo "Veuillez remplir tous les champs.";
+        
+            return $this->index();
+        }
+        
+            $name = strip_tags(htmlspecialchars($_POST['name']));
+            $email_address = strip_tags(htmlspecialchars($_POST['email']));
+            $phone = strip_tags(htmlspecialchars($_POST['phone']));
+            $message = strip_tags(htmlspecialchars($_POST['message']));
+        
+            // Créé l'email et l'envoie
+            $to = 'text_me2@protonmail.com';
+            $email_subject = "Contact du Blog:  $name";
+            $email_body = "Vous avez reçu un nouveau message du Blog.\n\n"."Voici les details:\n\nNom: $name\n\nEmail: $email_address\n\nNumero de téléphone: $phone\n\nMessage:\n$message";
+            $headers = "De: noreply@devsblog.com\n";
+            $headers .= "Répondre au: $email_address";
+            mail($to,$email_subject,$email_body,$headers);
+            return $this->index();
+        
+        
+            }
+        
+        }
     
