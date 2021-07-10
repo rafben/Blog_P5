@@ -1,251 +1,255 @@
-
-  {% extends 'layout.html.twig' %}   
-
-  
-  {% block content %}
-
-    <div class="container">
-        
-                  <!--section accueil--> 
-                      <section class="accueil" id="accueil=Accueil">
-                          
-                                    <div class="jumbotron" >
-                                          <h2 class="display-4">Rafik BENGRID</h2>
-                                          <hr class="my-4">
-                                            <div class="row">
-                                                <div class="col-lg">
-                                                  <p class="lead">
-                                                    <div class="text-center text-md-center">
-                                                      <a class="btn btn-primary" href="upload/CV_RafikBengrid.pdf" target="" onclick="document.getElementById('contact-form').submit();">Mon curriculum vitae</a>
-                                                    </div>
-                                                
-                                            </div>
-                                            <hr class="my-4">
-                                                                  
-                                    </div>
-                                        
-                          
-                      </section>
-                      
-                  <!--fin de section accueil-->  
-
-                    <!--section aujourdhui-->       
-                      <section class="compétences" id="competences=competences">
-                      
-                                  <div class="jumbotron">
-                                      <h2 class="display-4">Mes compétences</h2>
-                                      <hr class="my-4">
-
-                                      <!-- Card deck -->
-                                            <div class="card-deck">
-
-                                              <!-- Card -->
-                                              <div class="card mb-4">
-
-                                                <!--Card image-->
-                                                <div class="view overlay">
-                                                  <img class="card-img-top" src="public/images/logoPHP.png"
-                                                    alt="Card image cap">
-                                                  <a href="">
-                                                    <div class="mask rgba-white-slight"></div>
-                                                  </a>
-                                                </div>
-
-                                                <!--Card content-->
-                                                <div class="card-body">
-
-                                                  <!--Title-->
-                                                  <h4 class="card-title">Développeur PHP</h4>
-                                                  <!--Text-->
-                                                  <p class="card-text"> 
-                                                  
-                                                    J'utilise les technologies de conteneurisation et de provisioning Docker, Vagrant et Ansible afin d'automatiser et d'industrialiser mon environnement de développement.
-                                                    J'utilise des outils tels que PHP CS Fixer ou PHPStan pour garantir la qualité de code que je produis et garantir une homogénéité au sein de mon équipe. 
-                                                    Je teste toutes mes applications avec PHPUnit et met en place une intégration continue avec des outils tels que Jenkins, GitHub Action, Circle CI ou Travis.
-                                                    Je pratique les méthodes AGILE telles que SCRUM ou KANBAN depuis plusieurs années et j'utilise des outils de gestion de projet moderne comme Trello, GitHub, JIRA ou Monday.
-                                                    
-                                                    </p>
-                                                  <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                                                  
-                                                </div>
-                                                
-
-                                              </div>
-                                              <!-- Card -->
-
-                                              <!-- Card -->
-                                              <div class="card mb-4">
-
-                                                <!--Card image-->
-                                                <div class="view overlay">
-                                                  <img class="card-img-top" src="public/images/logoSymfony.jpg"
-                                                    alt="Card image cap">
-                                                  <a href="#!">
-                                                    <div class="mask rgba-white-slight"></div>
-                                                  </a>
-                                                </div>
-
-                                                <!--Card content-->
-                                                <div class="card-body">
-
-                                                  <!--Title-->
-                                                  <h4 class="card-title">Symfony</h4>
-                                                  <!--Text-->
-                                                  <p class="card-text">En réalisant un site web complet, vous intégrerez des vues avec le moteur de gabarits Twig, à manipuler une base de données à l'aide de l'ORM Doctrine et à interagir
-                                                    avec vos utilisateurs à l'aide de formulaires parfaitement intégrés et validés.
-                                                    vous sécuriserez votre site web et créer un espace d'administration.Concevoir et développer des applications Internet, intranet, gérer les besoins réseaux et
-                                                    administrer des serveurs Linux.
-                                                    Plus de trois ans d’expérience en analyse, conception et réalisation d’applications on-line, ainsi
-                                                    qu’en gestion réseaux et serveurs.</p>
-                                                  
-                                                  <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                                          
-
-                                                </div>
-                                                
-                                              </div>
-                                              <!-- Card -->
-
-                                              <!-- Card -->
-                                              <div class="card mb-4">
-
-                                                <!--Card image-->
-                                                <div class="view overlay">
-                                                  <img class="card-img-top" src="public/images/logoSQL.png"
-                                                    alt="Card image cap">
-                                                  <a href="#!">
-                                                    <div class="mask rgba-white-slight"></div>
-                                                  </a>
-                                                </div>
-
-                                                <!--Card content-->
-                                                <div class="card-body">
-
-                                                  <!--Title-->
-                                                  <h4 class="card-title">Concepteur de base de données</h4>
-                                                  <!--Text-->
-                                                  <p class="card-text">Après un diplôme d’ingénieur en informatique, j’ai travaillé 5 ans pour la société Cap Gemini, á la conception, la réalisation et l’intégration de bases de données pour des clients grands comptes tels que La Poste, le Crédit Agricole ou encore le Ministère de la Défense. Passionné d’informatique, j’effectue une veille technologique quasi-quotidienne afin de toujours rester á l’état de l’art. 
-                                                    J’exerce mon travail avec assiduité, autonomie et rigueur.</p>
-                                                  <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                                                
-
-                                                </div>
-                                                
-
-                                              </div>
-                                              
-                                              <!-- Card -->
-
-                                            </div>
-                                            <!-- Card deck -->
-                                            <hr class="my-4">
-                                  </div>
-                    </section>
-
-                    <!--fin de section aujourdhui--> 
+{% extends 'layout.html.twig' %}
 
 
+{% block content %}
 
-                    <section class="blog" id="blog=MonBlog">
-                          
-                      <div class="jumbotron" >
-                            <h2 class="display-4"> Bloguez-nous !</h2>
-                            <hr class="my-4">
-                              <div class="row">
-                                  <div class="col-lg">
-                                    <p class="lead">
-                                      <div class="text-center text-md-center">
-                                        <li class="logo"><a href=""></a><img src="public/images/logoblog1.png" height="65"> </a></li>
-                                        <a class="btn btn-primary" href="{{ URL }}/Article", target= "_blank"> Poser vos articles</a>
-                                      </div>
-                                    </p>
-                              </div>
-                              <hr class="my-4">
-                                                    
-                      </div>
-                          
-            
-                    </section>
+	<div
+		class="container">
 
-                
-    
-                <!--section CONTACT et INSCRIPTION--> 
-                <section class="contact_inscription" id="contact=contact">
-                  
-                              <div class="jumbotron">
-                                  <h2 class="display-4">CONTACT</h2>
-                                  <hr class="my-4">
-                                                        <!--Section: Contact v.1-->
-                          <section class="section pb-5">
-                            <div class="row">
+		<!--section accueil-->
+		<section class="accueil" id="accueil=Accueil">
 
-                              <!--Grid column-->
-                              <div class="col-lg-12">
-                              <form method="POST"  action="{{ URL }}/contact/">
+			<div class="jumbotron">
+				<h2 class="display-4">Rafik BENGRID</h2>
+				<hr class="my-4">
+				<div class="row">
+					<div class="col-lg">
+						<p class="lead">
+							<div class="text-center text-md-center">
+								<a class="btn btn-primary" href="upload/CV_RafikBengrid.pdf" target="" onclick="document.getElementById('contact-form').submit();">Mon curriculum vitae</a>
+							</div>
+						</p>
+					</div>
+					<hr class="my-4">
 
-                                <!--Form with header-->
-                                <div class="card">
+				</div>
 
-                                  <div class="card-body">
-                                    <!--Header-->
-                                    
 
-                                    <h5>Contactez-nous en complétant le formulaire ci-dessous :</h5> <br>
-                                
+			</section>
 
-                                    <!--Body-->
-                                    <div class="md-form">
-                                      <i class="fas fa-user prefix grey-text"></i>
-                                      <label for="form-name">Nom</label>
-                                      <input type="text" name="name" id="form-name" class="form-control">
-                                    </div><br>
+			<!--fin de section accueil-->
 
-                                     <div class="md-form">
-                                      <i class="fas fa-envelope prefix grey-text"></i>
-                                      <label for="form-email"> email</label>
-                                      <input type="email" name="email" id="form-email" class="form-control">
-                                    </div><br>
+			<!--section aujourdhui-->
+			<section class="compétences" id="competences=competences">
 
-                                    <div class="md-form">
-                                      <i class="fas fa-tag prefix grey-text"></i>
-                                      <label for="form-Subject">Objet</label>
-                                      <input type="text" name="object" id="form-Subject" class="form-control">
-                                    </div><br>
+				<div class="jumbotron">
+					<h2 class="display-4">Mes compétences</h2>
+					<hr
+					class="my-4">
 
-                                    <div class="md-form">
-                                      <i class="fas fa-pencil-alt prefix grey-text"></i>
-                                      <label for="form-text">Message</label>
-                                      <textarea id="form-text"name="message" class="form-control md-textarea" rows="3"></textarea>
-                                    </div><br>
+					<!-- Card deck -->
+					<div
+						class="card-deck">
 
-                                
-                                    <div class="text-center text-md-center">
-                                      <button class="btn btn-primary" type="submit">Envoyer</button>
-                                  </div>
-                                    
-                                    
-                                  <div class="status"></div>
+						<!-- Card -->
+						<div
+							class="card mb-4">
 
-                                  </div>
-                                  
+							<!--Card image-->
+							<div class="view overlay">
+								<img class="card-img-top" src="public/images/logoPHP.png" alt="Card image cap">
+								<a href="">
+									<div class="mask rgba-white-slight"></div>
+								</a>
+							</div>
 
-                                </div>
-                                <!--Form with header-->
+							<!--Card content-->
+							<div
+								class="card-body">
 
-                              </div>
-                              <!--Grid column-->
-      </div>
-    </div>
-  {% endblock %}   
-  
-  
-  
-  
-  
+								<!--Title-->
+								<h4 class="card-title">Développeur PHP</h4>
+								<!--Text-->
+								<p class="card-text">
 
-  
-   
+									J'utilise les technologies de conteneurisation et de provisioning Docker, Vagrant et Ansible afin d'automatiser et d'industrialiser mon environnement de développement.
+									                                                    J'utilise des outils tels que PHP CS Fixer ou PHPStan pour garantir la qualité de code que je produis et garantir une homogénéité au sein de mon équipe. 
+									                                                    Je teste toutes mes applications avec PHPUnit et met en place une intégration continue avec des outils tels que Jenkins, GitHub Action, Circle CI ou Travis.
+									                                                    Je pratique les méthodes AGILE telles que SCRUM ou KANBAN depuis plusieurs années et j'utilise des outils de gestion de projet moderne comme Trello, GitHub, JIRA ou Monday.
 
-        
-    
+								</p>
+								<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
 
+							</div>
+
+
+						</div>
+						<!-- Card -->
+
+						<!-- Card -->
+						<div
+							class="card mb-4">
+
+							<!--Card image-->
+							<div class="view overlay">
+								<img class="card-img-top" src="public/images/logoSymfony.jpg" alt="Card image cap">
+								<a href="#!">
+									<div class="mask rgba-white-slight"></div>
+								</a>
+							</div>
+
+							<!--Card content-->
+							<div
+								class="card-body">
+
+								<!--Title-->
+								<h4 class="card-title">Symfony</h4>
+								<!--Text-->
+								<p class="card-text">En réalisant un site web complet, vous intégrerez des vues avec le moteur de gabarits Twig, à manipuler une base de données à l'aide de l'ORM Doctrine et à interagir
+									                                                    avec vos utilisateurs à l'aide de formulaires parfaitement intégrés et validés.
+									                                                    vous sécuriserez votre site web et créer un espace d'administration.Concevoir et développer des applications Internet, intranet, gérer les besoins réseaux et
+									                                                    administrer des serveurs Linux.
+									                                                    Plus de trois ans d’expérience en analyse, conception et réalisation d’applications on-line, ainsi
+									                                                    qu’en gestion réseaux et serveurs.</p>
+
+								<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+
+
+							</div>
+
+						</div>
+						<!-- Card -->
+
+						<!-- Card -->
+						<div
+							class="card mb-4">
+
+							<!--Card image-->
+							<div class="view overlay">
+								<img class="card-img-top" src="public/images/logoSQL.png" alt="Card image cap">
+								<a href="#!">
+									<div class="mask rgba-white-slight"></div>
+								</a>
+							</div>
+
+							<!--Card content-->
+							<div
+								class="card-body">
+
+								<!--Title-->
+								<h4 class="card-title">Concepteur de base de données</h4>
+								<!--Text-->
+								<p class="card-text">Après un diplôme d’ingénieur en informatique, j’ai travaillé 5 ans pour la société Cap Gemini, á la conception, la réalisation et l’intégration de bases de données pour des clients grands comptes tels que La Poste, le Crédit Agricole ou encore le Ministère de la Défense. Passionné d’informatique, j’effectue une veille technologique quasi-quotidienne afin de toujours rester á l’état de l’art. 
+									                                                    J’exerce mon travail avec assiduité, autonomie et rigueur.</p>
+								<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+
+
+							</div>
+
+
+						</div>
+
+						<!-- Card -->
+
+					</div>
+					<!-- Card deck -->
+					<hr class="my-4">
+				</div>
+			</section>
+
+			<!--fin de section aujourdhui-->
+
+
+			<section class="blog" id="blog=MonBlog">
+
+				<div class="jumbotron">
+					<h2 class="display-4">
+						Bloguez-nous !</h2>
+					<hr class="my-4">
+					<div class="row">
+						<div class="col-lg">
+							<p class="lead">
+								<div class="text-center text-md-center">
+									<li class="logo">
+										<a href=""></a><img src="public/images/logoblog1.png" height="65">
+									</li>
+								</a>
+							</p>
+						</li>
+						<a class="btn btn-primary" href="{{ URL }}/Article" , target="_blank">
+							Poser vos articles</a>
+					</div>
+				</p>
+			</div>
+			<hr class="my-4">
+
+		</div>
+
+
+	</section>
+
+
+	<!--section CONTACT et INSCRIPTION-->
+	<section class="contact_inscription" id="contact=contact">
+
+		<div class="jumbotron">
+			<h2 class="display-4">CONTACT</h2>
+			<hr
+			class="my-4">
+			<!--Section: Contact v.1-->
+			<section class="section pb-5">
+				<div
+					class="row">
+
+					<!--Grid column-->
+					<div class="col-lg-12">
+						<form
+							method="POST" action="{{ URL }}/contact/envoi">
+
+							<!--Form with header-->
+							<div class="card">
+
+								<div
+									class="card-body">
+									<!--Header-->
+
+
+									<h5>Contactez-nous en complétant le formulaire ci-dessous :</h5>
+									<br>
+
+
+									<!--Body-->
+									<div class="md-form">
+										<i class="fas fa-user prefix grey-text"></i>
+										<label for="form-name">Nom</label>
+										<input type="text" name="name" id="form-name" class="form-control">
+									</div><br>
+
+									<div class="md-form">
+										<i class="fas fa-envelope prefix grey-text"></i>
+										<label for="form-email">
+											email</label>
+										<input type="email" name="email" id="form-email" class="form-control">
+									</div><br>
+
+									<div class="md-form">
+										<i class="fas fa-tag prefix grey-text"></i>
+										<label for="form-Subject">Objet</label>
+										<input type="text" name="objet" id="form-Subject" class="form-control">
+									</div><br>
+
+									<div class="md-form">
+										<i class="fas fa-pencil-alt prefix grey-text"></i>
+										<label for="form-text">Message</label>
+										<textarea id="form-text" name="message" class="form-control md-textarea" rows="3"></textarea>
+									</div><br>
+
+
+									<div class="text-center text-md-center">
+										<button class="btn btn-primary" type="submit">Envoyer</button>
+									</div>
+
+
+									<div class="status"></div>
+
+								</div>
+
+
+							</div>
+							<!--Form with header-->
+
+						</div>
+						<!--Grid column-->
+					</div>
+				</div>
+			{% endblock %}

@@ -23,7 +23,7 @@ h5{
 
 
 
-h1, h2,small, h6, h3, p, hr, em, blockquote{
+h1, h2,small, h6, h3, p, hr, em, td, th, blockquote, thead {
 
    color: white;
 }
@@ -240,6 +240,11 @@ h2{
    color:white;
 }
 .subheading{
+   color:white;
+
+}
+.table{
+
    color:white;
 
 }

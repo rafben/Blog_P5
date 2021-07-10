@@ -1,0 +1,77 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+	<div class="container">
+
+		<h2>Compte administrateur</h2>
+		<br>
+
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Prénom</th>
+					<th>Etat</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+
+	</div>
+
+
+	<div class="container">
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Prénom</th>
+					<th>email</th>
+					<th>Niveau</th>
+					<th>Action</th>
+
+
+				</tr>
+			</thead>
+			<tbody>
+				{% for user in users %}
+					<tr>
+						<td>{{ user.first_name}}
+						</td>
+						<td>
+							{{ user.last_name}}
+						</td>
+						<td>{{ user.email}}
+						</td>
+						<td>{{ user.niveau}}
+						</td>
+						<td>
+							<div class="dropdown">
+								<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Action
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									<a class="dropdown-item" href="{{ URL }}/admin/activateUser/{{user.id}}">Activer</a>
+									<a class="dropdown-item" href="#">Désactiver</a>
+                  <div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="#">Editer</a>
+									<a class="dropdown-item text-danger" href="#">Supprimer</a>
+
+								</div>
+							</div>
+
+						</td>
+
+					</tr>
+
+
+				{% endfor %}
+
+
+		
+		  </tbody>
+
+    	{% endblock %}

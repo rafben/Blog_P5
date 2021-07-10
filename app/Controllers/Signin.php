@@ -57,8 +57,17 @@ class Signin extends Controller
                 $_SESSION['niveau'] = $user->niveau;
 
                 //redirection  
+                if ($user->niveau == 1) {
 
-                Http::redirect( URL ."/article");
+                    Http::redirect( URL ."/admin");
+
+                }else{
+                    
+                    Http::redirect( URL ."/article");
+
+                }
+
+              
             } else {
                 
                 $this->index("Erreur de connexion, merci de réessayer");
