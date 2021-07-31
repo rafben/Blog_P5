@@ -9,26 +9,37 @@ class Admin extends Model
 
     protected $table = "users";
 
-    public function getUsers()
+        public function getUsers()
     {
 
     
-        $query = $this->pdo->prepare('SELECT * FROM users ORDER BY id DESC LIMIT 0,5');
-        $query->execute();
-        $resultat = $query->fetch();
+            $query = $this->pdo->prepare('SELECT * FROM users ORDER BY id DESC LIMIT 0,5');
+            $query->execute();
+            $resultat = $query->fetch();
         
-        return $resultat ;
+            return $resultat ;
     }
        
         
     
-   public function activateUser()
+        public function activateUser()
         {
-    
+            $sql = 'UPDATE users
+                    SET niveau = REPLACE(:niveau, 0, 1)';
+                
+            $query = $this->pdo->prepare($sql);
+            $query->execute(["niveau" => 1]);
+
+            if ($query->rowCount() == 1) {
+                
+            return true;
+        }
+        return false;
         
-            
+          
                
         }
+
 
   
 
