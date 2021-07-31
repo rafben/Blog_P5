@@ -36,9 +36,23 @@ class Admin extends Model
         }
         return false;
         
-          
-               
         }
+
+        public function supprimerUser()
+
+            $sql = 'DELETE FROM users
+                    WHERE id = :user_id';
+
+            $user_id = 0 ;
+            $query = $this->pdo->prepare($sql);
+            $query->execute(["first_name" => $first_name, "last_name" => $last_name, "email" => $email, "pwd" => $pwd]);
+
+            if ($query->rowCount() == 1) {
+                
+                return true;
+            }
+            return false;
+            }
 
 
   

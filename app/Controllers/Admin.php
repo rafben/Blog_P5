@@ -48,6 +48,31 @@ class Admin extends Controller
 
     
     }
+    
+    public function desactivateUser($id = PARAMS[0])
+
+    {
+       $id = filter_var($id, FILTER_VALIDATE_INT);
+
+            
+
+        var_dump('desactivateUser=' . $id);
+
+    
+    }
+
+    public function supprimerUser($id = PARAMS[0])
+
+    {
+       $id = filter_var($id, FILTER_VALIDATE_INT);
+
+            
+
+        var_dump('supprimerUser=' . $id);
+
+    
+    }
+
 
 
 

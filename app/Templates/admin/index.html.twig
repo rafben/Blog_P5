@@ -55,9 +55,9 @@
 								</button>
 								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 									<a class="dropdown-item" href="{{ URL }}/admin/activateUser/{{user.id}}">Activer</a>
-									<a class="dropdown-item" href="#">Désactiver</a>
+									<a class="dropdown-item" href="{{ URL }}/admin/desactivateUser/{{user.id}}">Désactiver</a>
                   				<div class="dropdown-divider"></div>
-									<a class="dropdown-item text-danger" href="#">Supprimer</a>
+									<a class="dropdown-item text-danger" href="{{ URL }}/admin/supprimerUser/{{user.id}}">Supprimer</a>
 
 								</div>
 							</div>
