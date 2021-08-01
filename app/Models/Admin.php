@@ -3,58 +3,44 @@
 namespace App\Models;
 
 use App\Models\Model;
+use Exception;
 
 class Admin extends Model
 {
 
     protected $table = "users";
+    
 
-        public function getUsers()
+    public function getUsers()
     {
-
-    
-            $query = $this->pdo->prepare('SELECT * FROM users ORDER BY id DESC LIMIT 0,5');
-            $query->execute();
-            $resultat = $query->fetch();
+        $query = $this->pdo->prepare('SELECT * FROM users ORDER BY id DESC LIMIT 0,5');
         
-            return $resultat ;
+        $query->execute();
+        $resultat = $query->fetch();
+        
+        return $resultat ;
     }
-       
-        
     
-        public function activateUser()
-        {
-            $sql = 'UPDATE users
-                    SET niveau = REPLACE(:niveau, 0, 1)';
-                
-            $query = $this->pdo->prepare($sql);
-            $query->execute(["niveau" => 1]);
+    public function actionUser($idUser, $action)
+    {
+        $sql = false;
 
-            if ($query->rowCount() == 1) {
-                
-            return true;
-        }
-        return false;
+        if ($action == 'activate') $sql = 'UPDATE users SET niveau = 2 WHERE id = ?';
+        if ($action == 'desactivate') $sql = 'UPDATE users SET niveau = 0 WHERE id = ?';
+        if ($action == 'delete') $sql = 'DELETE FROM users WHERE id = ?';
         
-        }
-
-        public function supprimerUser()
-
-            $sql = 'DELETE FROM users
-                    WHERE id = :user_id';
-
-            $user_id = 0 ;
+        if ($sql) {
             $query = $this->pdo->prepare($sql);
-            $query->execute(["first_name" => $first_name, "last_name" => $last_name, "email" => $email, "pwd" => $pwd]);
+            $query->execute([$idUser]);
 
             if ($query->rowCount() == 1) {
-                
                 return true;
+            } else {
+                return false;
             }
-            return false;
-            }
-
-
-  
+        } else {
+            throw new Exception('Erreur sur l\'action');
+        }
+    }
 
 }
