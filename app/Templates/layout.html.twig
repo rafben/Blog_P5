@@ -1,132 +1,133 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		{% block head %}
+<head>
+	{% block head %}
 
-			<!-- Required meta tags -->
-			<meta charset="utf-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-			{# <base href ="{{ URL }}"> #}
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		{# <base href ="{{ URL }}"> #}
 
-			<!-- Bootstrap CSS -->
+		<!-- Bootstrap CSS -->
 
-			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-			<link rel="stylesheet" href="{{ URL }}/public/css/style.css">
-			
-				{% block title %}
-					<title>Ma page web</title>
-				{% endblock %}
-		{% endblock %}
-	</head>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+		<link rel="stylesheet" href="{{ URL }}/public/css/style.css">
+		
+			{% block title %}
+				<title>Ma page web</title>
+			{% endblock %}
+	{% endblock %}
+</head>
 
-	<body>
-		<nav>
+<body>
+	<nav>
 
-			<ul class="menu">
-				<li class="logo">
-					<a href="{{ URL }}"><img src="{{ URL }}/public/images/logoblog1.png" height="65"></a>
-				</li>
+		<ul class="menu">
+			<li class="logo">
+				<a href="{{ URL }}"><img src="{{ URL }}/public/images/logoblog1.png" height="65"></a>
+			</li>
+			<li class="items">
+				<a href="{{ URL }}">Accueil</a>
+			</li>
+			<li class="items">
+				<a href="{{ URL }}/#competences=competences">Mes compétences</a>
+			</li>
+			<li class="items">
+				<a href="{{ URL }}/#blog=MonBlog">Mon blog</a>
+			</li>
+			<li class="items">
+				<a href="{{ URL }}/#contact=contact">Contacter-nous</a>
+			</li>
+			{% if session.connected != 'yes' %}
 				<li class="items">
-					<a href="{{ URL }}">Accueil</a>
+					<a href="{{ URL }}/signin">Connexion et inscription</a>
 				</li>
+			{% endif %}>
+			{% if session.connected == 'yes' %}
 				<li class="items">
-					<a href="{{ URL }}/#competences=competences">Mes compétences</a>
-				</li>
-				<li class="items">
-					<a href="{{ URL }}/#blog=MonBlog">Mon blog</a>
-				</li>
-				<li class="items">
-					<a href="{{ URL }}/#contact=contact">Contacter-nous</a>
-				</li>
-				{% if session.connected != 'yes' %}
-					<li class="items">
-						<a href="{{ URL }}/signin">Connexion et inscription</a>
-					</li>
-				{% endif %}>
-				{% if session.connected == 'yes' %}
-					<li class="items">
-						<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								{{ session.last_name }}
-							</button>
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="{{ URL }}">Accueil</a>
-								{% if session.niveau == 1 %}
-								<a class="dropdown-item" href="{{ URL }}/admin">Utilisateurs</a>
-								{% endif %}
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item text-danger" href="{{ URL }}/signin/disconnect">Déconnexion</a>
-							</div>
+					<div class="dropdown">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							{{ session.last_name }}
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							{% if session.niveau == 1 %}
+							<a class="dropdown-item" href="{{ URL }}/admin">Accueil</a>
+							<a class="dropdown-item" href="{{ URL }}/admin/users">Utilisateurs</a>
+							<a class="dropdown-item" href="{{ URL }}/admin/comments">Commentaires</a>
+							{% endif %}
+							<a class="dropdown-item" href="{{ URL }}/article">Articles</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item text-danger" href="{{ URL }}/signin/disconnect">Déconnexion</a>
 						</div>
-					</li>
-				{% endif %}
-				<li class="toggle">
-					<span class="bars"></span>
+					</div>
 				</li>
+			{% endif %}
+			<li class="toggle">
+				<span class="bars"></span>
+			</li>
 
-			</ul>
+		</ul>
 
-		</nav>
+	</nav>
 
-		{% block content %}{% endblock %}
-	</body>
-</html></div>{% block footer %}
-<footer
-	class="bg-dark text-center text-white">
-	<!-- Grid container -->
-	<div
-		class="container p-4 pb-0">
-		<!-- Section: Social media -->
-		<div class="social">
-
-			<section
-				class="mb-4">
-				<!-- Facebook -->
-				<a class="btn btn-outline-light btn-floating m-1" href="https://fr-fr.facebook.com/" role="button">
-					<i class="fab fa-facebook-f"></i>
-				</a>
-
-				<!-- Twitter -->
-				<a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/?lang=fr" role="button">
-					<i class="fab fa-twitter"></i>
-				</a>
-
-				<!-- Instagram -->
-				<a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/?hl=fr" role="button">
-					<i class="fab fa-instagram"></i>
-				</a>
-
-				<!-- Linkedin -->
-				<a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/feed/" role="button">
-					<i class="fab fa-linkedin-in"></i>
-				</a>
-
-				<!-- Github -->
-				<a class="btn btn-outline-light btn-floating m-1" href="https://github.com/" role="button">
-					<i class="fab fa-github"></i>
-				</a>
-			</section>
+	{% block content %}{% endblock %}
+	
+	{% block footer %}
+	<footer
+		class="bg-dark text-center text-white">
+		<!-- Grid container -->
+		<div
+			class="container p-4 pb-0">
 			<!-- Section: Social media -->
+			<div class="social">
+
+				<section
+					class="mb-4">
+					<!-- Facebook -->
+					<a class="btn btn-outline-light btn-floating m-1" href="https://fr-fr.facebook.com/" role="button">
+						<i class="fab fa-facebook-f"></i>
+					</a>
+
+					<!-- Twitter -->
+					<a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/?lang=fr" role="button">
+						<i class="fab fa-twitter"></i>
+					</a>
+
+					<!-- Instagram -->
+					<a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/?hl=fr" role="button">
+						<i class="fab fa-instagram"></i>
+					</a>
+
+					<!-- Linkedin -->
+					<a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/feed/" role="button">
+						<i class="fab fa-linkedin-in"></i>
+					</a>
+
+					<!-- Github -->
+					<a class="btn btn-outline-light btn-floating m-1" href="https://github.com/" role="button">
+						<i class="fab fa-github"></i>
+					</a>
+				</section>
+				<!-- Section: Social media -->
+			</div>
 		</div>
-	</div>
-	<!-- Grid container -->
+		<!-- Grid container -->
 
-	<!-- Copyright -->
-	<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-		© 2021 Copyright:
-		<a class="text-white" href="http://localhost/cours-php-poo-corrigee">Rafik Bengrid</a>
-	</div>
-	<!-- Copyright -->
-</footer>
+		<!-- Copyright -->
+		<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+			© 2021 Copyright:
+			<a class="text-white" href="http://localhost/cours-php-poo-corrigee">Rafik Bengrid</a>
+		</div>
+		<!-- Copyright -->
+	</footer>
+	{% endblock %}
 
-{% endblock %}
-		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		<script src="https://kit.fontawesome.com/881aade759.js" crossorigin="anonymous"></script>
-		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-
-
-
+	{% block script %}
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://kit.fontawesome.com/881aade759.js" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+	{% endblock %}
 </body>
 </html>

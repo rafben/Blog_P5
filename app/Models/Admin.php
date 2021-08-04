@@ -8,8 +8,7 @@ use Exception;
 class Admin extends Model
 {
 
-    protected $table = "users";
-    
+    public $table = "users";
 
     public function getUsers()
     {
@@ -42,5 +41,44 @@ class Admin extends Model
             throw new Exception('Erreur sur l\'action');
         }
     }
+
+    public function editRoleUser($idUser, $role)
+    {
+
+        $sql = 'UPDATE users SET niveau = ? WHERE id = ?';
+
+        $query = $this->pdo->prepare($sql);
+        $query->execute([$role, $idUser]);
+
+        if ($query->rowCount() == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    public function actionComments($idUser, $action)
+    {
+        $sql = false;
+
+        if ($action == 'activate') $sql = 'UPDATE comments SET published = 1 WHERE id = ?';
+        if ($action == 'desactivate') $sql = 'UPDATE comments SET published = 0 WHERE id = ?';
+        if ($action == 'delete') $sql = 'DELETE FROM comments  WHERE id = ?';
+        
+        if ($sql) {
+            $query = $this->pdo->prepare($sql);
+            $query->execute([$idUser]);
+
+            if ($query->rowCount() == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            throw new Exception('Erreur sur l\'action');
+        }
+    }
+
 
 }

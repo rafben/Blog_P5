@@ -7,69 +7,13 @@
 		<h2>Compte administrateur</h2>
 		<br>
 
+		<div class="alert alert-success">
+			<p>Bienvenu sur votre compte <strong>{{ session.last_name }}</strong></p>
 
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Nom</th>
-					<th>Prénom</th>
-					<th>Etat</th>
-				</tr>
-			</thead>
-			<tbody></tbody>
-		</table>
+			Que souhaiez-vous faire, selectionner un page
 
+			
+		</div>
 	</div>
-
-
-	<div class="container">
-
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Nom</th>
-					<th>Prénom</th>
-					<th>email</th>
-					<th>Niveau</th>
-					<th>Action</th>
-
-
-				</tr>
-			</thead>
-			<tbody>
-				{% for user in users %}
-					<tr>
-						<td>{{ user.first_name}}
-						</td>
-						<td>
-							{{ user.last_name}}
-						</td>
-						<td>{{ user.email}}
-						</td>
-						<td>{{ user.niveau}}
-						</td>
-						<td>
-							<div class="dropdown">
-								<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Action
-								</button>
-								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-									<a class="dropdown-item" href="{{ URL }}/admin/actionUser/{{user.id}}/activate">Activer</a>
-									<a class="dropdown-item" href="{{ URL }}/admin/actionUser/{{user.id}}/desactivate">Désactiver</a>
-                  					<div class="dropdown-divider"></div>
-									<a class="dropdown-item text-danger" href="{{ URL }}/admin/actionUser/{{user.id}}/delete">Supprimer</a>
-								</div>
-							</div>
-
-						</td>
-
-					</tr>
-
-
-				{% endfor %}
-
-
 		
-		  </tbody>
-
-    	{% endblock %}
+{% endblock %}
