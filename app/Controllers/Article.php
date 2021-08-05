@@ -12,7 +12,16 @@ class Article extends Controller
 
     protected $modelName = \App\Models\Article::class;
 
+    public function checkAdmin()
+    {
+        // Autorisations globales pour l'admin seulement
+        if (!$_SESSION['connected'] || $_SESSION['connected'] !== 'yes' || $_SESSION['niveau'] != 1) {
+            Http::redirect( URL );
+        }
+    }
 
+
+    // Affichage
     public function index()
     {
          /**
@@ -89,12 +98,130 @@ class Article extends Controller
         ]);
     }
 
+    public function edit($article_id = null)
+    {
+        $this->checkAdmin();
+        
+        //affiche un seul article
+        /**
+         * CE FICHIER DOIT AFFICHER UN ARTICLE ET SES COMMENTAIRES !
+         * 
+         */
+
+        // On peut désormais décider : erreur ou pas ?!
+        if ($article_id === null) {
+            die("Vous devez préciser un paramètre `id` dans l'URL !");
+        }
+
+        
+
+        /**
+         * Récupération de l'article en question
+         * On va ici utiliser une requête préparée car elle inclue une variable qui provient de l'utilisateur : Ne faites
+         * jamais confiance à ce connard d'utilisateur ! :D
+         */
+        $article = $this->model->find($article_id);
+
+        /**
+         * On affiche 
+         */
+        $pageTitle = $article['title'];
+
+        Renderer::twig('articles/edit', [
+            'pageTitle' => $pageTitle,
+            'article' => $article,
+            'article_id' => $article_id,
+            "URL" => URL,
+            'session' => $_SESSION
+        ]);
+    }
+
+
+    // Actions
+    public function add()
+    {
+        $this->checkAdmin();
+
+        $date = date("Y-m-d  H:i:s ");
+
+        if (!empty($_POST)) {
+
+            $input_params = [
+                'title' =>[
+                    'filter' => FILTER_SANITIZE_STRING,
+                ],
+               
+                'intro' => [
+                    'filter'  => FILTER_SANITIZE_STRING,
+                ],
+                'content' => [
+                    'filter'  => FILTER_SANITIZE_STRING
+                ],
+                
+            ];
+
+            $inputs = (object)filter_input_array(INPUT_POST, $input_params);
+
+            //$slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $inputs->title)));
+
+            $slug = Http::slugify($inputs->title);
+       
+            if ($this->model->addArticle($inputs->title, $slug, $inputs->intro, $inputs->content)) {
+                Http::redirect(URL . "/article" );
+            } else {
+                $this->index("merci de réessayer");
+            }
+
+        }
+    }
+
+    public function update($id = null)
+    {
+        $this->checkAdmin();
+
+        /**
+         * 1. On vérifie que le GET possède bien un paramètre "id" (delete.php?id=202) et que c'est bien un nombre
+         */
+        if ($id === null) {
+            die("Ho ?! Tu n'as pas précisé l'id de l'article !");
+        }
+
+        /**
+         * 2. Filtrer les paramètres
+         */
+        $id = filter_var($id, FILTER_VALIDATE_INT);
+
+        $input_params = [
+            'title' =>[
+                'filter' => FILTER_SANITIZE_STRING,
+            ],
+            'introduction' =>[
+                'filter' => FILTER_SANITIZE_STRING,
+            ],
+            'content' => [
+                'filter'  => FILTER_SANITIZE_STRING,
+            ]
+        ];
+        
+        $inputs = (object)filter_input_array(INPUT_POST, $input_params);
+
+        $inputs->slug = Http::slugify($inputs->title);
+        
+        /**
+         * 3. Réelle modification de l'article
+         */
+        $this->model->updateArticle($id, $inputs);
+        
+
+        /**
+         * 4. Redirection vers la page d'accueil
+         */
+        Http::redirect(URL . "/article");
+    }
+
     public function delete($id = null)
     {
-        if (!$_SESSION['connected'] || $_SESSION['connected'] !== 'yes' || $_SESSION['niveau'] < 1) {
-            Http::redirect( URL );
-            
-        }
+        $this->checkAdmin();
 
         //supprime un article
         /**
@@ -132,48 +259,4 @@ class Article extends Controller
          */
         Http::redirect(URL . "/article");
     }
-
-    public function add()
-
-    {
-        if (!$_SESSION['connected'] || $_SESSION['connected'] !== 'yes' || $_SESSION['niveau'] < 1) {
-            Http::redirect( URL );
-        }
-        $date = date("Y-m-d  H:i:s ");
-
-
-    
-        if (!empty($_POST)) {
-
-            $input_params = [
-                'title' =>[
-                    'filter' => FILTER_SANITIZE_STRING,
-                ],
-               
-                'intro' => [
-                    'filter'  => FILTER_SANITIZE_STRING,
-                ],
-                'content' => [
-                    'filter'  => FILTER_SANITIZE_STRING
-                ],
-                
-            ];
-
-            $inputs = (object)filter_input_array(INPUT_POST, $input_params);
-
-            //$slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $inputs->title)));
-
-            $slug = Http::slugify($inputs->title);
-       
-            if ($this->model->add($inputs->title, $slug, $inputs->intro, $inputs->content)) {
-                Http::redirect(URL . "/article" );
-            } else {
-                $this->index("merci de réessayer");
-            }
-
-
-            
-        }
-    }
-
 }

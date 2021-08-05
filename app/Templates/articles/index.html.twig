@@ -9,16 +9,17 @@
         {% for article in articles %}
 
             <h2>{{ article.title }}</h2>
-            <small>Ecrit le {{ article.created_at }} </small>
+            <small>Ecrit le {{ article.updated_at }} </small>
             <p>{{ article.introduction }}</p>
 
-            <a href="{{ URL }}/article/show/{{ article.id }}" >Lire la suite</a>
+            <div>
+                <a class="btn btn-primary" href="{{ URL }}/article/show/{{ article.id }}">Lire la suite</a>
 
-            {% if session.niveau > 0 %}
-             <a href="{{ URL }}/article/delete/{{ article.id }}" onclick="return window.confirm(`Êtes vous sur de vouloir supprimer cet article ?!`)">Supprimer</a>
-            {% endif %}
-           
-            
+                {% if session.niveau == 1 %}
+                <a class="btn btn-warning" href="{{ URL }}/article/edit/{{ article.id }}">Modifier</a>
+                <a class="btn btn-outline-danger" href="{{ URL }}/article/delete/{{ article.id }}" onclick="return window.confirm(`Êtes vous sur de vouloir supprimer cet article ?!`)">Supprimer</a>
+                {% endif %}
+            </div>
 
         {% endfor %}
 

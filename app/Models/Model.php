@@ -25,12 +25,6 @@ abstract class Model
         return $item;
     }
 
-    public function delete(int $id): void
-    {
-        $query = $this->pdo->prepare("DELETE FROM {$this->table} WHERE id = :id");
-        $query->execute(['id' => $id]);
-    }
-
     /**
      * Retourne la liste des articles classés par ordre de création//
      * @return array
@@ -49,9 +43,9 @@ abstract class Model
         return $articles;
     }
 
-    public function add(string $title, string $slug, string $intro, string $content): void
+    public function delete(int $id): void
     {
-        $query = $this->pdo->prepare('INSERT INTO articles SET title = :title, slug = :slug, introduction = :intro, content = :content, created_at = NOW()');
-        $query->execute(compact('title', 'slug', 'intro', 'content'));
+        $query = $this->pdo->prepare("DELETE FROM {$this->table} WHERE id = :id");
+        $query->execute(['id' => $id]);
     }
 }

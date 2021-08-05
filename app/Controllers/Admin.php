@@ -81,8 +81,10 @@ class Admin extends Controller
         // Params récupèrés depuis l'URL
         $id = filter_var($id, FILTER_VALIDATE_INT);
         $action = filter_var($action, FILTER_SANITIZE_STRING);
-
+        
         if ($role && $action == "role") {
+            $role = filter_var($role, FILTER_SANITIZE_STRING);
+            
             // Appel de la methode editRoleUser du Model
             $this->model->editRoleUser($id, $role);
         } else {
