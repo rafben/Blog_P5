@@ -6,7 +6,8 @@
 
     "require": {
         "fzaninotto/faker": "^1.8",
-        "twig/twig": "3.0"
+        "twig/twig": "3.0",
+
     },
     
     "autoload": {
