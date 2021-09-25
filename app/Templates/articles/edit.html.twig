@@ -1,29 +1,39 @@
-  {% extends 'layout.html.twig' %}   
-  
-  {% block content %}
+{% extends 'layout.html.twig' %}
 
-    <div class="container">
-        <form method="POST" action="{{ URL }}/article/update/{{ article.id }}">
-            <div class="mb-3">
-                <label for="title" class="form-label">Titre</label>
-                <input type="text" class="form-control" id="title" name="title" placeholder="Titre de l'article" value="{{ article.title}}">
-            </div>
-            <div class="mb-3">
-                <label for="introduction" class="form-label">Chapo</label>
-                <textarea class="form-control" id="introduction" name="introduction" rows="3" placeholder="Chapo de l'article">{{ article.introduction}}</textarea>
-            </div>
-            <div class="mb-3">
-                <label for="content" class="form-label">Description</label>
-                <textarea class="form-control" id="content" name="content" rows="3" placeholder="Description de l'article">{{ article.content}}</textarea>
-            </div>
+{% block content %}
 
-            <hr>
 
-            <div class="text-center my-3">
-                <button class="btn btn-success" type="submit">Modifier</button>
-                <a class="btn btn-outline-danger" href="{{ URL }}/article">Annuler</a>
-            </div>
-        </form>
-    </div>
+	<div class="container">
+
+		<hr class="my-4">
+        <h2 class="display-4">
+			Postez vos modifications !</h2>
+		<hr class="my-4">
+
+
+		<form method="POST" action="{{ URL }}/article/update/{{ article.id }}">
+			<div class="mb-3">
+				<label for="title" class="form-label">Titre</label>
+				<input type="text" class="form-control" id="title" name="title" placeholder="Titre de l'article" value="{{ article.title}}">
+			</div>
+			<div class="mb-3">
+				<label for="introduction" class="form-label">Chapo</label>
+				<textarea class="form-control" id="introduction" name="introduction" rows="3" placeholder="Chapo de l'article">{{ article.introduction}}</textarea>
+			</div>
+			<div class="mb-3">
+				<label for="content" class="form-label">Description</label>
+				<textarea class="form-control" id="content" name="content" rows="3" placeholder="Description de l'article">{{ article.content}}</textarea>
+			</div>
+
+			<hr>
+
+			<div class="text-center my-3">
+				<button class="btn btn-success" type="submit">Modifier</button>
+				<a class="btn btn-outline-danger" href="{{ URL }}/article">Annuler</a>
+			</div>
+		</form>
+	</div>
+
+	<br><br><br><br><br><br><br><br>
 
 {% endblock %}

@@ -2,18 +2,38 @@
 
 {% block content %}
 
-	<div class="container">
+
+<body>
+		<div class="container">
 
 		<h2>Compte administrateur</h2>
 		<br>
+	
 
-		<div class="alert alert-success">
-			<p>Bienvenu sur votre compte <strong>{{ session.last_name }}</strong></p>
+			<div class="alert alert-success" style="margin-bottom: 18% ; margin-top: 10%">
+				<label>Bienvenu sur votre compte d'
+					<strong>{{ session.last_name }}</strong>
+				</label>
+				<br>
 
-			Que souhaiez-vous faire, selectionner un page
+				 Que souhaiteriez-vous faire, sélectionner un page :
+				 <br/>
+				 <br/>
 
-			
-		</div>
-	</div>
-		
-{% endblock %}
+								
+
+				<div class="btn-group" role="group" aria-label="Basic mixed styles example">
+					<a  href="{{ URL }}/admin/users" class="btn btn-danger">Utilisateurs</a>
+					<a  href="{{ URL }}/article" class="btn btn-success">Articles</a>
+					<a  href="{{ URL }}/admin/comments" class="btn btn-warning">Commentaires</a>
+
+				</div>
+
+
+			</div>
+		</div>	
+
+	</body>
+
+
+	{% endblock %}

@@ -1,84 +1,89 @@
-{% extends 'layout.html.twig' %}   
+{% extends 'layout.html.twig' %}
 
 {% block content %}
 
-    <div class="container">
+<div class="container">
 
-        <h1>Nos articles</h1>
+		<h1>Nos articles</h1>
 
-        {% for article in articles %}
+		{% for article in articles %}
 
-            <h2>{{ article.title }}</h2>
-            <small>Ecrit le {{ article.updated_at }} </small>
-            <p>{{ article.introduction }}</p>
+			<h2>{{ article.title }}</h2>
+			<small>Ecrit le {{ article.updated_at }} </small>
+			<p>{{ article.introduction }}</p>
 
-            <div>
-                <a class="btn btn-primary" href="{{ URL }}/article/show/{{ article.id }}">Lire la suite</a>
+			<div>
+				<a class="btn btn-primary" href="{{ URL }}/article/show/{{ article.id }}">Lire la suite</a>
 
-                {% if session.niveau == 1 %}
-                <a class="btn btn-warning" href="{{ URL }}/article/edit/{{ article.id }}">Modifier</a>
-                <a class="btn btn-outline-danger" href="{{ URL }}/article/delete/{{ article.id }}" onclick="return window.confirm(`Êtes vous sur de vouloir supprimer cet article ?!`)">Supprimer</a>
-                {% endif %}
-            </div>
+				{% if session.niveau == 1 %}
+					<a class="btn btn-warning" href="{{ URL }}/article/edit/{{ article.id }}">Modifier</a>
+					<a class="btn btn-outline-danger" href="{{ URL }}/article/delete/{{ article.id }}" onclick="return window.confirm(`Êtes vous sur de vouloir supprimer cet article ?!`)">Supprimer</a>
+				{% endif %}
+			</div>
 
-        {% endfor %}
+		{% endfor %}
 
-       
-        <form action="{{ URL }}/article/add" method="POST">
-                
-                <section class="" id="">
-                    
-                    <div class="jumbotron">
-                    <h2 class="display-4">Postez votre article !</h2>
-                    <hr class="my-4">
-                                                        
-                        <section class="section pb-5">
-                            <div class="row">
 
-                        <!--Grid column-->
-                            <div class="col-lg-12">
-                                
-                                    <!--Form with header-->
-                                    <div class="card">
+		<form action="{{ URL }}/article/add" method="POST">
 
-                                    <div class="card-body">
-                                        <!--Header-->
-                                        
-                                        <h5>Postez votre article !</h5> <br>
+			<section class="" id="">
 
-                                        <!--Body-->
-                                            <div class="md-form">
-                                            <i class="fas fa-user prefix grey-text"></i>
-                                            <label for="form-name">Titre</label>
-                                            <input type="text" name="title" placeholder="Titre" id="form-name" class="form-control">
-                                            </div><br>
+				<div class="jumbotron">
+					<h2 class="display-4">Postez votre article !</h2>
+					<hr class="my-4">
 
-                                            <div class="md-form">
-                                            <i class="fas fa-user prefix grey-text"></i>
-                                            <label for="form-name">Introduction</label>
-                                            <input type="text" name="intro" id="form-name" class="form-control" placeholder="Introduction">
-                                            </div><br>
+					<section class="section pb-5">
+						<div class="row">
 
-                                            <div class="md-form">
-                                            <i class="fas fa-pencil-alt prefix grey-text"></i>
-                                            <label for="form-text">Message</label>
-                                            <textarea id="form-text"name="content" class="form-control md-textarea" placeholder="Votre post ..." rows="3"></textarea>
-                                            </div><br>
+							<!--Grid column-->
+							<div class="col-lg-12">
 
-                                            <div class="text-center text-md-center">
-                                            <input type="hidden" name="article_id" value="{{ article_id }}">
-                                            <button class="btn btn-primary" type="submit">Ajoutez un poste</button>
-                                            </div>
-                                    </div>
-                                        
-                            </div>
-                        <!--Form with header-->
+								<!--Form with header-->
+								<div class="card">
 
-                        </div>
-                                <!--Grid column-->
-        </form>
+									<div class="card-body">
+										<!--Header-->
+										<h5>Postez votre article !</h5>
+										<br>
 
-    </div>
+										<!--Body-->
+										<div class="md-form">
+											<i class="fas fa-user prefix grey-text"></i>
+											<label for="form-name">Titre</label>
+											<input type="text" name="title" placeholder="Titre" id="form-name" class="form-control">
+										</div><br>
 
+										<div class="md-form">
+											<i class="fas fa-user prefix grey-text"></i>
+											<label for="form-name">Introduction</label>
+											<input type="text" name="intro" id="form-name" class="form-control" placeholder="Introduction">
+										</div><br>
+
+										<div class="md-form">
+											<i class="fas fa-pencil-alt prefix grey-text"></i>
+											<label for="form-text">Message</label>
+											<textarea id="form-text" name="content" class="form-control md-textarea" placeholder="Votre post ..." rows="3"></textarea>
+										</div><br>
+
+										<div class="text-center text-md-center">
+											<input type="hidden" name="article_id" value="{{ article_id }}">
+											<button class="btn btn-primary" type="submit">Ajoutez un poste</button>
+										</div>
+									</div>
+
+								</div>
+								<!--Form with header-->
+
+							</div>
+							<!--Grid column-->
+						</div>
+						</section>
+				</div>
+			</section>
+		</form>
+
+</div>		
+
+		
 {% endblock %}
 

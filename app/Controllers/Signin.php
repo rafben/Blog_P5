@@ -39,16 +39,16 @@ class Signin extends Controller
                 'filter'  => FILTER_SANITIZE_STRING
             ],
         ];
-        
+
         $inputs = (object)filter_input_array(INPUT_POST, $input_params);
-        
+
         $user = $this->model->connect($inputs->email);
 
         if ($user) {
 
             if (password_verify($inputs->pwd, $user->pwd)) {
 
-               // construction de session utilisateur 
+                // construction de session utilisateur 
 
                 $_SESSION['connected'] = 'yes';
                 $_SESSION['user_id'] = $user->id;
@@ -59,26 +59,18 @@ class Signin extends Controller
                 //redirection  
                 if ($user->niveau == 1) {
 
-                    Http::redirect( URL ."/admin");
+                    Http::redirect(URL . "/admin");
+                } else {
 
-                }else{
-                    
-                    Http::redirect( URL ."/article");
-
+                    Http::redirect(URL . "/article");
                 }
-
-              
             } else {
-                
+
                 $this->index("Erreur de connexion, merci de réessayer");
             }
-            
         } else {
             $this->index("Erreur de connexion, merci de réessayer");
         }
-
-       
-       
     }
 
     public function disconnect()
@@ -92,8 +84,6 @@ class Signin extends Controller
 
         session_destroy();
 
-        Http::redirect( URL );
+        Http::redirect(URL);
     }
-
-    
 }
