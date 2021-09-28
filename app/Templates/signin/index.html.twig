@@ -2,28 +2,28 @@
 
 {% block content %}
 
+	<div class="container">
+		<!-- Page Header -->
 
-	<!-- Page Header -->
-	<header class="masthead" style="background-image: url('Content/startbootstrap-clean-blog-gh-pages/img/home-bg.jpg')">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-md-10 mx-auto">
-					<div class="site-heading">
-						<h1>Connexion</h1>
-						<span class="subheading">Veuillez vous authentifier avec vos identifiants de connexion</span>
-					</div>
+
+		<div class="row">
+			<div class="col-lg-8 col-md-10 mx-auto">
+				<div class="site-heading">
+					<hr class="my-4">
+					<h1>Connexion</h1>
+					<span class="subheading">Veuillez vous authentifier avec vos identifiants de connexion</span>
+					<hr class="my-4">
 				</div>
 			</div>
 		</div>
-	</header>
 
-	<!-- Main Content -->
-	<div class="container">
+
+		<!-- Main Content -->
+
 		<div class="row">
 			<div class="col-lg-8 col-md-10 mx-auto">
 				<p class="help-block text-danger">{{ msg }}</p>
-				<p class="help-block text-success"></p>
+
 
 				<form method="post" action="{{ URL }}/signin/connect" id="contactForm" novalidate>
 					<div class="control-group">
@@ -41,10 +41,8 @@
 							<p class="help-block text-danger"></p>
 						</div>
 					</div>
+					<br>
 
-					<br>
-					<br>
-					<br>
 					<div id="success"></div>
 					<div class="form-group">
 						<button type="submit" name="submitted" class="btn btn-primary" value="submitted">Connexion</button>
@@ -53,18 +51,20 @@
 			</div>
 		</div>
 
-			<div class="row">
-				<div class="col-8 mx-auto">
-					<a href ="{{ URL }}/register"> Si vous n'avez pas de compte, merci de vous inscrire</a>
-				</div>
+		<div class="row">
+			<hr class="my-4">
+			<div class="col-8 mx-auto">
+				<a href="{{ URL }}/register"> Si vous n'avez pas de compte, merci de vous inscrire</a>
 			</div>
-		
-	</div>
-	
-	<br><br><br>
-	<br><br><br>
-	<br><br>
+			<hr class="my-4">
+		</div>
 
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+	</div>
 
 
 {% endblock %}
