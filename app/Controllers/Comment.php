@@ -47,7 +47,7 @@ class Comment extends Controller
             $content = htmlspecialchars($_POST['content']);
         }
 
-        // Enfin l'id de l'article
+        // l'id de l'article
         $article_id = null;
         if (!empty($_POST['article_id']) && ctype_digit($_POST['article_id'])) {
             $article_id = $_POST['article_id'];
@@ -100,7 +100,7 @@ class Comment extends Controller
          * 
          * On va donc vérifier que le paramètre "id" est bien présent en GET, qu'il correspond bien à un commentaire existant
          * Puis on le supprimera !
-         * 1. Récupération du paramètre "id" en GET
+         * Récupération du paramètre "id" en GET
          */
 
        $id = PARAMS[0];
@@ -112,7 +112,7 @@ class Comment extends Controller
 
 
         /**
-         * 3. Vérification de l'existence du commentaire
+         * Vérification de l'existence du commentaire
          */
         $commentaire = $this->model->find($id);
         if (!$commentaire) {
@@ -120,7 +120,7 @@ class Comment extends Controller
         }
 
         /**
-         * 4. Suppression réelle du commentaire
+         * Suppression réelle du commentaire
          * On récupère l'identifiant de l'article avant de supprimer le commentaire
          */
 
@@ -129,7 +129,7 @@ class Comment extends Controller
         $this->model->delete($id);
 
         /**
-         * 5. Redirection vers l'article en question
+         * Redirection vers l'article en question
          */
         Http::redirect(URL ."/article/show/" . $article_id);
     }

@@ -9,20 +9,7 @@ class Application
 
     public static function process()
     {
-      /*  $controllerName = "Home";
-        $task = "index";
-
-        if(!empty($_GET['controller'])){
-            $controllerName = ucfirst($_GET['controller']);
-        }
-        if(!empty($_GET['task'])){
-            $task = ucfirst($_GET['task']);
-        }
-    */
-       /*$controllerName = "\\App\\Controllers\\" . $controllerName;
-        
-        $controller = new $controllerName();
-        $controller->$task();*/
+     
         
         define('URL', '/cours-php-poo-corrigee');
 
@@ -58,12 +45,7 @@ class Application
            // Store the file name into variable
            $filename = "http://localhost/cours-php-poo-corrigee/upload/CV_RafikBengrid.pdf";
 
-           // Header content type
-           //header("Content-type: application/pdf");
-           //header("Content-Disposition: inline; filename=CV_RafikBengrid.pdf");
-           
-           // Send the file to the browser.
-           //readfile($filename);
+          
 
            echo '<script>window.location.href = "'.$filename.'";</script>';
         }

@@ -31,7 +31,7 @@ class Article extends Controller
         $articles = $this->model->findAll("created_at DESC");
 
         /**
-         * 3. Affichage des articles
+         * Affichage des articles
          */
         $pageTitle = "Accueil";
 
@@ -180,14 +180,14 @@ class Article extends Controller
         $this->checkAdmin();
 
         /**
-         * 1. On vérifie que le GET possède bien un paramètre "id" (delete.php?id=202) et que c'est bien un nombre
+         * On vérifie que le GET possède bien un paramètre "id" (delete.php?id=202) et que c'est bien un nombre
          */
         if ($id === null) {
             die("Ho ?! Tu n'as pas précisé l'id de l'article !");
         }
 
         /**
-         * 2. Filtrer les paramètres
+         * Filtrer les paramètres
          */
         $id = filter_var($id, FILTER_VALIDATE_INT);
 
@@ -208,13 +208,13 @@ class Article extends Controller
         $inputs->slug = Http::slugify($inputs->title);
         
         /**
-         * 3. Réelle modification de l'article
+         * Réelle modification de l'article
          */
         $this->model->updateArticle($id, $inputs);
         
 
         /**
-         * 4. Redirection vers la page d'accueil
+         * Redirection vers la page d'accueil
          */
         Http::redirect(URL . "/article");
     }
@@ -241,7 +241,7 @@ class Article extends Controller
 
 
         /**
-         * 3. Vérification que l'article existe bel et bien
+         * 2. Vérification que l'article existe bel et bien
          */
         $article = $this->model->find($id);
 
@@ -250,12 +250,12 @@ class Article extends Controller
         }
 
         /**
-         * 4. Réelle suppression de l'article
+         * 3. Réelle suppression de l'article
          */
         $this->model->delete($id);
 
         /**
-         * 5. Redirection vers la page d'accueil
+         * 4. Redirection vers la page d'accueil
          */
         Http::redirect(URL . "/article");
     }

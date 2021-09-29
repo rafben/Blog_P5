@@ -85,10 +85,10 @@ class Admin extends Controller
         if ($role && $action == "role") {
             $role = filter_var($role, FILTER_SANITIZE_STRING);
             
-            // Appel de la methode editRoleUser du Model
+        // Appel de la methode editRoleUser du Model
             $this->model->editRoleUser($id, $role);
         } else {
-            // Appel de la methode actionUser du Model
+        // Appel de la methode actionUser du Model
             $this->model->actionUser($id, $action);
         }
 
