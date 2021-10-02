@@ -2,14 +2,16 @@
 
 {% block content %}
 
-<div class="container">
+	<div class="container">
 
 		<h1>Nos articles</h1>
 
 		{% for article in articles %}
 
 			<h2>{{ article.title }}</h2>
-			<small>Ecrit le {{ article.updated_at }} </small>
+			<small>Ecrit le
+				{{ article.updated_at }}
+			</small>
 			<p>{{ article.introduction }}</p>
 
 			<div>
@@ -33,15 +35,18 @@
 					<hr class="my-4">
 
 					<section class="section pb-5">
-						<div class="row">
+						<div
+							class="row">
 
 							<!--Grid column-->
-							<div class="col-lg-12">
+							<div
+								class="col-lg-12">
 
 								<!--Form with header-->
 								<div class="card">
 
-									<div class="card-body">
+									<div
+										class="card-body">
 										<!--Header-->
 										<h5>Postez votre article !</h5>
 										<br>
@@ -77,13 +82,12 @@
 							</div>
 							<!--Grid column-->
 						</div>
-						</section>
+					</section>
 				</div>
 			</section>
 		</form>
 
-</div>		
+	</div>
 
-		
+
 {% endblock %}
-

@@ -16,7 +16,7 @@ class Article extends Controller
     {
         // Autorisations globales pour l'admin seulement
         if (!$_SESSION['connected'] || $_SESSION['connected'] !== 'yes' || $_SESSION['niveau'] != 1) {
-            Http::redirect( URL );
+            Http::redirect(URL);
         }
     }
 
@@ -24,7 +24,7 @@ class Article extends Controller
     // Affichage
     public function index()
     {
-         /**
+        /**
          *CE FICHIER A POUR BUT D'AFFICHER LA PAGE D'ACCUEIL !
          */
 
@@ -48,8 +48,8 @@ class Article extends Controller
 
     public function show($article_id = null)
     {
-        
-        
+
+
         //affiche un seul article
         /**
          * CE FICHIER DOIT AFFICHER UN ARTICLE ET SES COMMENTAIRES !
@@ -65,7 +65,7 @@ class Article extends Controller
             die("Vous devez préciser un paramètre `id` dans l'URL !");
         }
 
-        
+
 
         /**
          * Récupération de l'article en question
@@ -101,7 +101,7 @@ class Article extends Controller
     public function edit($article_id = null)
     {
         $this->checkAdmin();
-        
+
         //affiche un seul article
         /**
          * CE FICHIER DOIT AFFICHER UN ARTICLE ET SES COMMENTAIRES !
@@ -113,7 +113,7 @@ class Article extends Controller
             die("Vous devez préciser un paramètre `id` dans l'URL !");
         }
 
-        
+
 
         /**
          * Récupération de l'article en question
@@ -147,17 +147,17 @@ class Article extends Controller
         if (!empty($_POST)) {
 
             $input_params = [
-                'title' =>[
+                'title' => [
                     'filter' => FILTER_SANITIZE_STRING,
                 ],
-               
+
                 'intro' => [
                     'filter'  => FILTER_SANITIZE_STRING,
                 ],
                 'content' => [
                     'filter'  => FILTER_SANITIZE_STRING
                 ],
-                
+
             ];
 
             $inputs = (object)filter_input_array(INPUT_POST, $input_params);
@@ -165,13 +165,12 @@ class Article extends Controller
             //$slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $inputs->title)));
 
             $slug = Http::slugify($inputs->title);
-       
+
             if ($this->model->addArticle($inputs->title, $slug, $inputs->intro, $inputs->content)) {
-                Http::redirect(URL . "/article" );
+                Http::redirect(URL . "/article");
             } else {
                 $this->index("merci de réessayer");
             }
-
         }
     }
 
@@ -192,26 +191,26 @@ class Article extends Controller
         $id = filter_var($id, FILTER_VALIDATE_INT);
 
         $input_params = [
-            'title' =>[
+            'title' => [
                 'filter' => FILTER_SANITIZE_STRING,
             ],
-            'introduction' =>[
+            'introduction' => [
                 'filter' => FILTER_SANITIZE_STRING,
             ],
             'content' => [
                 'filter'  => FILTER_SANITIZE_STRING,
             ]
         ];
-        
+
         $inputs = (object)filter_input_array(INPUT_POST, $input_params);
 
         $inputs->slug = Http::slugify($inputs->title);
-        
+
         /**
          * Réelle modification de l'article
          */
         $this->model->updateArticle($id, $inputs);
-        
+
 
         /**
          * Redirection vers la page d'accueil

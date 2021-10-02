@@ -28,8 +28,8 @@ abstract class Model
     /**
      * Retourne la liste des articles classés par ordre de création//
      * @return array
-    */
-    public function findAll(?string $order =""): array
+     */
+    public function findAll(?string $order = ""): array
     {
         $sql = "SELECT * FROM {$this->table}";
 

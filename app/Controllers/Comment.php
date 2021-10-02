@@ -11,8 +11,9 @@ class Comment extends Controller
 
     protected $modelName = \App\Models\Comment::class;
 
-    
-    public function insert(){
+
+    public function insert()
+    {
         /**
          * CE FICHIER DOIT ENREGISTRER UN NOUVEAU COMMENTAIRE EST REDIRIGER SUR L'ARTICLE !
          * 
@@ -85,15 +86,14 @@ class Comment extends Controller
         $this->model->insert($author, $content, $article_id);
 
         // 4. Redirection vers l'article en question :
-        Http::redirect( URL. "/article/show/" . $article_id);
+        Http::redirect(URL . "/article/show/" . $article_id);
     }
 
     public function delete()
 
     {
         if (!$_SESSION['connected'] || $_SESSION['connected'] !== 'yes' || $_SESSION['niveau'] < 1) {
-            Http::redirect( URL );
-            
+            Http::redirect(URL);
         }
         /**
          * DANS CE FICHIER ON CHERCHE A SUPPRIMER LE COMMENTAIRE DONT L'ID EST PASSE EN PARAMETRE GET !
@@ -103,12 +103,12 @@ class Comment extends Controller
          * Récupération du paramètre "id" en GET
          */
 
-       $id = PARAMS[0];
+        $id = PARAMS[0];
 
         if (empty($id)) {
             die("Ho ! Fallait préciser le paramètre id en GET !");
         }
-       
+
 
 
         /**
@@ -131,7 +131,6 @@ class Comment extends Controller
         /**
          * Redirection vers l'article en question
          */
-        Http::redirect(URL ."/article/show/" . $article_id);
+        Http::redirect(URL . "/article/show/" . $article_id);
     }
-
 }

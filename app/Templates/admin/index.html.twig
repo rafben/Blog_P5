@@ -3,37 +3,35 @@
 {% block content %}
 
 
-<body>
+	<body>
 		<div class="container">
 
-		<h2>Compte administrateur</h2>
-		<br>
-	
+			<h2>Compte administrateur</h2>
+			<br>
 
-			<div class="alert alert-success" style="margin-bottom: 25% ; margin-top: 10%" ; padd>
-				<label>Bienvenu sur votre compte d'
-					<strong>{{ session.last_name }}</strong>
+
+			<div class="alert alert-success" style="margin-bottom: 28% ; margin-top:9%">
+				<label>Bienvenu sur votre compte d'<strong>{{ session.last_name }}</strong>
 				</label>
 				<br>
 
-				 Que souhaiteriez-vous faire, sélectionner un page :
-				 <br/>
-				 <br/>
+				Que souhaiteriez-vous faire, sélectionner un page :
+				<br/>
+				<br/>
 
-								
 
 				<div class="btn-group" role="group" aria-label="Basic mixed styles example">
-					<a  href="{{ URL }}/admin/users" class="btn btn-danger">Utilisateurs</a>
-					<a  href="{{ URL }}/article" class="btn btn-success">Articles</a>
-					<a  href="{{ URL }}/admin/comments" class="btn btn-warning">Commentaires</a>
+					<a href="{{ URL }}/admin/users" class="btn btn-danger">Utilisateurs</a>
+					<a href="{{ URL }}/article" class="btn btn-success">Articles</a>
+					<a href="{{ URL }}/admin/comments" class="btn btn-warning">Commentaires</a>
 
 				</div>
 
 
 			</div>
-		</div>	
+		</div>
 
 	</body>
 
 
-	{% endblock %}
+{% endblock %}

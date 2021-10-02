@@ -13,7 +13,5 @@ class Upload extends Controller
     public function index()
     {
         $pageTitle = "Accueil";
-
-        
     }
 }

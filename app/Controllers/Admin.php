@@ -16,7 +16,7 @@ class Admin extends Controller
     {
         // Autorisations globales pour l'admin seulement
         if (!$_SESSION['connected'] || $_SESSION['connected'] !== 'yes' || $_SESSION['niveau'] != 1) {
-            Http::redirect( URL );
+            Http::redirect(URL);
         }
     }
 
@@ -81,14 +81,14 @@ class Admin extends Controller
         // Params récupèrés depuis l'URL
         $id = filter_var($id, FILTER_VALIDATE_INT);
         $action = filter_var($action, FILTER_SANITIZE_STRING);
-        
+
         if ($role && $action == "role") {
             $role = filter_var($role, FILTER_SANITIZE_STRING);
-            
-        // Appel de la methode editRoleUser du Model
+
+            // Appel de la methode editRoleUser du Model
             $this->model->editRoleUser($id, $role);
         } else {
-        // Appel de la methode actionUser du Model
+            // Appel de la methode actionUser du Model
             $this->model->actionUser($id, $action);
         }
 
@@ -96,23 +96,20 @@ class Admin extends Controller
         Http::redirect(URL . '/admin/users');
     }
 
-     // ACTIONS
-     public function actionComments($id = PARAMS[0], $action = PARAMS[1])
-     {
-         // Vérification des droits admin
-         $this->checkAdmin();
- 
-         // Params récupèrés depuis l'URL
-         $id = filter_var($id, FILTER_VALIDATE_INT);
-         $action = filter_var($action, FILTER_SANITIZE_STRING);
- 
-         // Appel de la methode actionUser du Model
-         $this->model->actionComments($id, $action);
- 
-         // Redirection vers la liste des users
-         Http::redirect(URL . '/admin/comments');
-     }
+    // ACTIONS
+    public function actionComments($id = PARAMS[0], $action = PARAMS[1])
+    {
+        // Vérification des droits admin
+        $this->checkAdmin();
 
-    
+        // Params récupèrés depuis l'URL
+        $id = filter_var($id, FILTER_VALIDATE_INT);
+        $action = filter_var($action, FILTER_SANITIZE_STRING);
 
+        // Appel de la methode actionUser du Model
+        $this->model->actionComments($id, $action);
+
+        // Redirection vers la liste des users
+        Http::redirect(URL . '/admin/comments');
+    }
 }

@@ -32,4 +32,13 @@ class Home extends Controller
 
         ]);
     }
+
+    public function page_404() {
+        Renderer::twig('home/404', [
+            "pageTitle" => "Page 404",
+            "URL" => URL,
+            'session' => $_SESSION
+
+        ]);
+    }
 }

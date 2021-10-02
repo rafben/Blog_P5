@@ -21,5 +21,4 @@ class Cv extends Controller
 
         ]);
     }
-  
 }

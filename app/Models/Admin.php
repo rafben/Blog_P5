@@ -13,13 +13,13 @@ class Admin extends Model
     public function getUsers()
     {
         $query = $this->pdo->prepare('SELECT * FROM users ORDER BY id DESC LIMIT 0,5');
-        
+
         $query->execute();
         $resultat = $query->fetch();
-        
-        return $resultat ;
+
+        return $resultat;
     }
-    
+
     public function actionUser($idUser, $action)
     {
         $sql = false;
@@ -27,7 +27,7 @@ class Admin extends Model
         if ($action == 'activate') $sql = 'UPDATE users SET niveau = 2 WHERE id = ?';
         if ($action == 'desactivate') $sql = 'UPDATE users SET niveau = 0 WHERE id = ?';
         if ($action == 'delete') $sql = 'DELETE FROM users WHERE id = ?';
-        
+
         if ($sql) {
             $query = $this->pdo->prepare($sql);
             $query->execute([$idUser]);
@@ -65,7 +65,7 @@ class Admin extends Model
         if ($action == 'activate') $sql = 'UPDATE comments SET published = 1 WHERE id = ?';
         if ($action == 'desactivate') $sql = 'UPDATE comments SET published = 0 WHERE id = ?';
         if ($action == 'delete') $sql = 'DELETE FROM comments  WHERE id = ?';
-        
+
         if ($sql) {
             $query = $this->pdo->prepare($sql);
             $query->execute([$idUser]);
@@ -79,6 +79,4 @@ class Admin extends Model
             throw new Exception('Erreur sur l\'action');
         }
     }
-
-
 }

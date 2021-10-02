@@ -5,80 +5,80 @@
 	<div class="container">
 
 		<h2>Liste des utilisateurs<h2>
-		<br>
-	</div>
+				<br>
+			</div>
 
 
-	<div class="container">
+			<div class="container">
 
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Nom</th>
-					<th>Prénom</th>
-					<th>email</th>
-					<th>Niveau</th>
-					<th>Activé</th>
-					<th>Action</th>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Nom</th>
+							<th>Prénom</th>
+							<th>email</th>
+							<th>Niveau</th>
+							<th>Activé</th>
+							<th>Action</th>
 
-				</tr>
-			</thead>
-			<tbody>
-				{% for user in users %}
-					<tr>
-						<td>
-						{{ user.first_name}}
-						</td>
-						<td>
-						{{ user.last_name}}
-						</td>
-						<td>
-						{{ user.email}}
-						</td>
-						<td>
-							<select class="form-select" aria-label="Changer le niveau" id="role" data-user="{{ user.id }}">
-								<option value="{{ user.niveau}}" selected>{{ user.niveau == 1 ? 'Admin' : 'Membre'}}</option>
-								<option disabled>---------</option>
-								<option value="1">Admin</option>
-								<option value="2">Membre</option>
-							</select>
-						</td>
-						<td>
-						{{ user.niveau == 0 ? 'Non' : 'Oui'}}
-						</td>
-						<td>
-							<div class="dropdown">
-								<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Action
-								</button>
-								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-									<a class="dropdown-item" href="{{ URL }}/admin/actionUser/{{user.id}}/activate">Activer</a>
-									<a class="dropdown-item" href="{{ URL }}/admin/actionUser/{{user.id}}/desactivate">Désactiver</a>
-                  					<div class="dropdown-divider"></div>
-									<a class="dropdown-item text-danger" href="{{ URL }}/admin/actionUser/{{user.id}}/delete">Supprimer</a>
-								</div>
-							</div>
+						</tr>
+					</thead>
+					<tbody>
+						{% for user in users %}
+							<tr>
+								<td>
+									{{ user.first_name}}
+								</td>
+								<td>
+									{{ user.last_name}}
+								</td>
+								<td>
+									{{ user.email}}
+								</td>
+								<td>
+									<select class="form-select" aria-label="Changer le niveau" id="role" data-user="{{ user.id }}">
+										<option value="{{ user.niveau}}" selected>{{ user.niveau == 1 ? 'Admin' : 'Membre'}}</option>
+										<option disabled>---------</option>
+										<option value="1">Admin</option>
+										<option value="2">Membre</option>
+									</select>
+								</td>
+								<td>
+									{{ user.niveau == 0 ? 'Non' : 'Oui'}}
+								</td>
+								<td>
+									<div class="dropdown">
+										<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											Action
+										</button>
+										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+											<a class="dropdown-item" href="{{ URL }}/admin/actionUser/{{user.id}}/activate">Activer</a>
+											<a class="dropdown-item" href="{{ URL }}/admin/actionUser/{{user.id}}/desactivate">Désactiver</a>
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item text-danger" href="{{ URL }}/admin/actionUser/{{user.id}}/delete">Supprimer</a>
+										</div>
+									</div>
 
-						</td>
-					</tr>
-				{% endfor %}
-		  </tbody>
-		</table>
-	</div>
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
 
-{% endblock %}
+		{% endblock %}
 
-{% block script %}
-	{{ parent() }}
+		{% block script %}
+			{{ parent() }}
 
-	<script>
-		let role = document.getElementById('role');
-		let userId = role.getAttribute('data-user');
+			<script>
+				let role = document.getElementById('role');
+let userId = role.getAttribute('data-user');
 
-		role.onchange = function() {
-			window.location.href = "actionUser/" + userId + '/role/' + role.value;
-		}
-	</script>
+role.onchange = function () {
+window.location.href = "actionUser/" + userId + '/role/' + role.value;
+}
+			</script>
 
-	
-{% endblock %}
+
+		{% endblock %}

@@ -33,10 +33,10 @@ class Register extends Controller
     {
 
         $input_params = [
-            'nom' =>[
+            'nom' => [
                 'filter' => FILTER_SANITIZE_STRING,
             ],
-            'prenom' =>[
+            'prenom' => [
                 'filter' => FILTER_SANITIZE_STRING,
             ],
             'email' => [
@@ -46,17 +46,16 @@ class Register extends Controller
                 'filter'  => FILTER_SANITIZE_STRING
             ],
         ];
-        
-        
+
+
 
         $inputs = (object)filter_input_array(INPUT_POST, $input_params);
         $pass_hache = password_hash($inputs->password, PASSWORD_DEFAULT, ['COST' => 10]);
-        
+
 
         if ($this->model->register($inputs->nom, $inputs->prenom, $inputs->email, $pass_hache)) {
-            
-            Http::redirect( URL . "/article" );
 
+            Http::redirect(URL . "/article");
         } else {
             $this->index("merci de réessayer");
         }
@@ -73,8 +72,6 @@ class Register extends Controller
 
         session_destroy();
 
-        Http::redirect( URL );
+        Http::redirect(URL);
     }
-
-    
 }

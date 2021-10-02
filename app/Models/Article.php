@@ -10,7 +10,7 @@ class Article extends Model
     public function addArticle(string $title, string $slug, string $intro, string $content): bool
     {
         $sql = 'INSERT INTO articles SET title = :title, slug = :slug, introduction = :intro, content = :content, created_at = NOW(), updated_at = NOW()';
-        
+
         $query = $this->pdo->prepare($sql);
         $query->execute(compact('title', 'slug', 'intro', 'content'));
 

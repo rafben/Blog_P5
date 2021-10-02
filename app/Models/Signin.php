@@ -20,11 +20,8 @@ class Signin extends Model
         if ($query->rowCount() == 1) {
             $user = $query->fetchObject();
 
-            return $user ;
+            return $user;
         }
         return false;
-    
-    
-    
-}
+    }
 }

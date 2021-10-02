@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 abstract class Controller
 {
-    
+
     protected $model;
     protected $modelName;
 
@@ -12,8 +12,7 @@ abstract class Controller
     {
         if ($this->modelName) {
 
-            $this->model = new $this->modelName();    
-
+            $this->model = new $this->modelName();
         }
     }
 }
