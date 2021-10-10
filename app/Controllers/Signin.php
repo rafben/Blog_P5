@@ -15,7 +15,6 @@ class Signin extends Controller
 
     public function index($msg = "")
     {
-
         $pageTitle = "connexion";
 
 

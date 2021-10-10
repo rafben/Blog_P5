@@ -48,13 +48,13 @@ Sur la page présentant le détail d’un blog post, il faut afficher les inform
 *   Le formulaire permettant d’ajouter un commentaire
 *   Les listes des commentaires validés et publiés
 
-
 ## Installer le projet 
 
 *   Mettre en place la Base de données, importer le fichier blogpoo/blogpoo.sql afin d'y créer les différentes tables
 *   Cloner le projet
 *   Installer les dépendances du projet en executant la commande composer install
 *   Votre blog est désormais fonctionnel ! Vous pouvez y créer un compte dans l'onglet "Inscription" sans oublier de cliquer sur le lien de validation de votre email. Ensuite, dans votre base de données et dans la table "user", modifier la colonne "usertype" de l'utilisateur que vous venez de créer et mettez y la valeur 1. Enregistrer, vous disposez désormais d'un compte administrateur qui vous permet de gérer votre blog via le menu "Administration"
+*   ouvrir le fichier index.php à la racine du projet, et mettre à jour la ligne 11 si le nom de votre projet est différent de Blog_P5 ou si le projet     n'est pas directement à la racine de votre serveur web   
 
 ## Modéle MVC
 
