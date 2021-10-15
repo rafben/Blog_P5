@@ -31,10 +31,10 @@ class Contact extends Controller
         // Vérification pour les champs vides
 
         if (
-            empty($_POST['name'])       ||
-            empty($_POST['email'])     ||
-            empty($_POST['objet'])     ||
-            empty($_POST['message'])   ||
+            empty($_POST['name']) ||
+            empty($_POST['email']) ||
+            empty($_POST['objet']) ||
+            empty($_POST['message']) ||
             !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)
         ) {
 
@@ -45,7 +45,7 @@ class Contact extends Controller
             $objet = strip_tags(htmlspecialchars($_POST['objet']));
             $message = strip_tags(htmlspecialchars($_POST['message']));
 
-            // Créé l'email et l'envoie
+            // Créé l'email et l'envoi
             $to = 'rbengrid@hotmail.com';
             $email_subject = "Contact du Blog:  $name";
             $email_body = "Vous avez reçu un nouveau message du Blog.\n\n" . "Voici les details:\n\nNom: $name\n\nEmail: $email_address\n\nNumero de téléphone: $objet\n\nMessage:\n$message";
