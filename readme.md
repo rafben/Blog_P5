@@ -54,7 +54,11 @@ Sur la page présentant le détail d’un blog post, il faut afficher les inform
 *   Cloner le projet
 *   Installer les dépendances du projet en executant la commande composer install
 *   Votre blog est désormais fonctionnel ! Vous pouvez y créer un compte dans l'onglet "Inscription" sans oublier de cliquer sur le lien de validation de votre email. Ensuite, dans votre base de données et dans la table "user", modifier la colonne "usertype" de l'utilisateur que vous venez de créer et mettez y la valeur 1. Enregistrer, vous disposez désormais d'un compte administrateur qui vous permet de gérer votre blog via le menu "Administration"
-*   Ouvrir le fichier index.php à la racine du projet, et mettre à jour la ligne 11 si le nom de votre projet est différent de Blog_P5 ou si le projet     n'est pas directement à la racine de votre serveur web   
+*   Ouvrir le fichier index.php à la racine du projet, et mettre à jour la ligne 11 si le nom de votre projet est différent de Blog_P5 ou si le projet n'est pas directement à la racine de votre serveur web 
+*   Veuillez créer une base de donnée nommée blogpoo, si vous êtes dans un environnement où les identifiants pour se connecter à la base de donnée sot diffèrent de:
+    Username: 'root'
+    Password: ''
+    Il vous faut éditer le fichier Database.php situe dans le dossier vendor/rafik/src et  modifier la ligne 17 afin d'y mettre vos identifiants de base de données.
 
 ## Modéle MVC
 
