@@ -8,5 +8,5 @@ options -indexes
 
 
 RewriteEngine on
-RewriteCond %{REQUEST_FILENAME} !.(png|jpg|css|js|eot|ttf|woff|woff2|ico|jpeg|gif)$
+RewriteCond %{REQUEST_FILENAME} !.(png|jpg|css|js|eot|ttf|woff|woff2|ico|jpeg|gif|pdf)$
 RewriteRule . index.php [QSA,L]
